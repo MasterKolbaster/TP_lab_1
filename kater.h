@@ -11,9 +11,10 @@ private:
 	string properties;
 public:
 	kater();
-	kater(ifstream ff);
+	kater(ifstream &ff);
 	~kater();
 	void setParameters();
 	void print();
+	void setFF(ifstream &ff);
 };
 

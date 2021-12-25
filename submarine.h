@@ -9,9 +9,10 @@ private:
 	string arms;
 public:
 	submarine();
-	submarine(ofstream ff);
+	submarine(ofstream &ff);
 	~submarine();
 	void setParameters();
 	void print();
+	void setFF(ifstream &ff);
 };
 

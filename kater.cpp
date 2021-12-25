@@ -10,7 +10,7 @@ kater :: kater()
 	material = "Металл";
 	properties = "Быстрый";
 }
-kater::kater(ifstream ff)
+kater::kater(ifstream &ff)
 {
 	ff >> crew;
 	ff >> speed;
@@ -52,4 +52,12 @@ void kater::print()
 	cout << "Назначение: " << purpose << endl;
 	cout << "Материал корпуса: " << material << endl;
 	cout << "Ходовые качества: " << properties << endl;
+}
+void kater::setFF(ifstream &ff)
+{
+	ff >> crew;
+	ff >> speed;
+	ff >> purpose;
+	ff >> material;
+	ff >> properties;
 }
