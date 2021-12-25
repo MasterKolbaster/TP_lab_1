@@ -1,7 +1,7 @@
 #pragma once
 class boat
 {
-private:
+protected:
 	int speed;
 	int crew;
 public:

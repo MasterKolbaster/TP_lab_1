@@ -1,5 +1,8 @@
 #pragma once
 #include "boat.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
 class kater : public boat
 {
 private:
@@ -8,6 +11,9 @@ private:
 	string properties;
 public:
 	kater();
+	kater(ifstream ff);
 	~kater();
+	void setParameters();
+	void print();
 };
 

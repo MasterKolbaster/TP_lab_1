@@ -16,6 +16,9 @@ private:
 	
 public:
 	Sailboat();
+	Sailboat(ofstream ff);
 	~Sailboat();
+	void setParameters();
+	void print();
 };
 
