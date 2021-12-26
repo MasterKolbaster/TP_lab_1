@@ -6,10 +6,11 @@ kater :: kater()
 	cout << "Конструктор катеров здесь" << endl;
 	crew = 0;
 	speed = 0;
-	purpose = "Частный";
-	material = "Металл";
-	properties = "Быстрый";
+	purpose = "unknown";
+	material = "unknown";
+	properties = "unknown";
 }
+
 kater::kater(ifstream &ff)
 {
 	ff >> crew;
@@ -18,6 +19,7 @@ kater::kater(ifstream &ff)
 	ff >> material;
 	ff >> properties;
 }
+
 kater :: ~kater()
 {
 	ofstream out;
@@ -28,6 +30,7 @@ kater :: ~kater()
 	out << material << endl;
 	out << properties << endl;
 }
+
 void kater::setParameters()
 {
 	setlocale(LC_ALL, "Russian");
@@ -43,6 +46,7 @@ void kater::setParameters()
 	cout << "Введите ходовые качества катера " << endl;
 	cin >> properties;
 }
+
 void kater::print()
 {
 	setlocale(LC_ALL, "Russian");
@@ -53,6 +57,7 @@ void kater::print()
 	cout << "Материал корпуса: " << material << endl;
 	cout << "Ходовые качества: " << properties << endl;
 }
+
 void kater::setFF(ifstream &ff)
 {
 	ff >> crew;

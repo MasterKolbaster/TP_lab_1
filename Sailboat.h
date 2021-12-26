@@ -1,10 +1,12 @@
 #pragma once
 #include "boat.h"
-
+#include <iostream>
+#include <fstream>
 enum mili
 {
 	miliary,
 	peacefull,
+	unknown,
 };
 class Sailboat : public boat
 {
@@ -16,7 +18,7 @@ private:
 	
 public:
 	Sailboat();
-	Sailboat(ofstream &ff);
+	Sailboat(int c, int s, string t, string n, mili k, int l);
 	~Sailboat();
 	void setParameters();
 	void print();
