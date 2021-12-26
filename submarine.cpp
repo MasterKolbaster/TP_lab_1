@@ -28,8 +28,6 @@ submarine::~submarine()
 
 void submarine::setParameters()
 {
-	char flag = '0';
-	int choise;
 	setlocale(LC_ALL, "Russian");
 	cout << "¬ведите параметры подлодки " << endl;
 	cout << "¬ведите количество членов экипажа " << endl;
@@ -72,4 +70,15 @@ void submarine::setFF(ifstream& ff)
 	ff >> width;
 	ff >> diveTime;
 	ff >> arms;
+}
+
+void submarine :: saveFF()
+{
+	ofstream out("submarine.txt", ios_base::out | ios_base::app);
+	out << crew << endl;
+	out << speed << endl;
+	out << length << endl;
+	out << width << endl;
+	out << diveTime << endl;
+	out << arms << endl;
 }

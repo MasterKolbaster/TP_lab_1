@@ -16,5 +16,6 @@ public:
 	void setParameters();
 	void print();
 	void setFF(ifstream &ff);
+	void saveFF();
 };
 

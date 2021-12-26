@@ -5,7 +5,7 @@ Sailboat::Sailboat()
 	speed = 0;
 	type = "unknown";
 	name = "unknown";
-	kind = unknown;
+	kind = "unknown";
 	length = 0;
 	cout << "Конструктор парусника" << endl;
 }
@@ -15,7 +15,7 @@ Sailboat::~Sailboat()
 	cout << "Деструктор парусника" << endl;
 }
 
-Sailboat::Sailboat(int c, int s, string t, string n, mili k, int l)
+Sailboat::Sailboat(int c, int s, string t, string n, string k, int l)
 {
 	crew = c;
 	speed = s;
@@ -28,8 +28,6 @@ Sailboat::Sailboat(int c, int s, string t, string n, mili k, int l)
 
 void Sailboat::setParameters()
 {
-	char flag = '0';
-	int choise;
 	setlocale(LC_ALL, "Russian");
 	cout << "Введите параметры парусника " << endl;
 	cout << "Введите количество членов экипажа " << endl;
@@ -47,30 +45,9 @@ void Sailboat::setParameters()
 	cout << "Введите длинну парусника " << endl;
 	cin >> length;
 	system("cls");
-	while (flag == '0')
-	{
-		cout << "Выберите тип парусника \n"
-			"1 - Военный\n"
-			"2 - Мирный" << endl;
-		cin >> choise;
-		switch (choise)
-		{
-		case 1:
-			system("cls");
-			kind = miliary;
-			flag = '1';
-			break;
-		case 2:
-			system("cls");
-			kind = peacefull;
-			flag = '1';
-			break;
-		default:
-			system("cls");
-			cout << "Неправильно выбрана команда" << endl;
-			break;
-		}
-	}
+	cout << "Введите милитаризованность парусника " << endl;
+	cin >> kind;
+	system("cls");
 }
 
 void Sailboat::print()
@@ -93,4 +70,15 @@ void Sailboat::setFF(ifstream& ff)
 	ff >> name;
 	ff >> length;
 	ff >> kind;
+}
+
+void Sailboat::saveFF()
+{
+	ofstream out("Sailboat.txt", ios_base::out | ios_base::app);
+	out << crew << endl;
+	out << speed << endl;
+	out << type << endl;
+	out << name << endl;
+	out << length << endl;
+	out << kind << endl;
 }

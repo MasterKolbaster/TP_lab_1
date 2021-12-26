@@ -13,6 +13,7 @@ kater :: kater()
 
 kater::kater(ifstream &ff)
 {
+	cout << "Конструктор катеров" << endl;
 	ff >> crew;
 	ff >> speed;
 	ff >> purpose;
@@ -22,13 +23,7 @@ kater::kater(ifstream &ff)
 
 kater :: ~kater()
 {
-	ofstream out;
-	out.open("kater.txt");
-	out << crew << endl;
-	out << speed << endl;
-	out << purpose << endl;
-	out << material << endl;
-	out << properties << endl;
+	cout << "Деструктор катеров" << endl;
 }
 
 void kater::setParameters()
@@ -37,14 +32,19 @@ void kater::setParameters()
 	cout << "Введите параметры катера " << endl;
 	cout << "Введите количество членов экипажа " << endl;
 	cin >> crew;
+	system("cls");
 	cout << "Введите максимальную скорость в м/с " << endl;
 	cin >> speed;
+	system("cls");
 	cout << "Введите назначение катера " << endl;
 	cin >> purpose;
+	system("cls");
 	cout << "Введите материал из которого изготовлен корпус катера " << endl;
 	cin >> material;
+	system("cls");
 	cout << "Введите ходовые качества катера " << endl;
 	cin >> properties;
+	system("cls");
 }
 
 void kater::print()
@@ -65,4 +65,14 @@ void kater::setFF(ifstream &ff)
 	ff >> purpose;
 	ff >> material;
 	ff >> properties;
+}
+
+void kater::saveFF()
+{
+	ofstream out("kater.txt", ios_base::out | ios_base::app);
+	out << crew << endl;
+	out << speed << endl;
+	out << purpose << endl;
+	out << material << endl;
+	out << properties << endl;
 }
